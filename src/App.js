@@ -1,4 +1,5 @@
-import './App.css';
+import Navbar from './Navbar';
+import Home from './Home';
 
 function App() {
 
@@ -6,9 +7,10 @@ function App() {
   const link = "https://google.com";
   return (
     <div className="App">
+      <Navbar/>
       <div className="content">
+        <Home/>
         <h1>{title}</h1>
-        <a href={link} target="_blank">Google site</a>
       </div>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
