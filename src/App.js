@@ -1,13 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const title = 'Welcome to the new Blog';
+  const link = "https://google.com";
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="content">
+        <h1>{title}</h1>
+        <a href={link} target="_blank">Google site</a>
+      </div>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          push <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -17,7 +23,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
