@@ -18,6 +18,11 @@ const Home = () => {
         setAge(20);
     }
 
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs);
+    }
+
     const handleClickAgain = (name) => {
         console.log('hello '+ name);
     }
@@ -28,7 +33,7 @@ const Home = () => {
             <button onClick={handleClick}>Click me</button>
             <button onClick={ () => handleClickAgain('dafrin') }>Click me Again</button>
 
-                <BlogList blogs={blogs} title="All blogs!!"></BlogList>
+                <BlogList blogs={blogs} title="All blogs!!" handleDelete={handleDelete}></BlogList>
         </div>
      );
 }
