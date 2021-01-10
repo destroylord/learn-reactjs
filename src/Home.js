@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 
+
+/* 
+    untuk menjalankan sebuah json ketik diterminal :
+
+    npx json-server --watch data/db.json --port 8000
+*/
+
 const Home = () => {
 
 
@@ -18,8 +25,7 @@ const Home = () => {
         setName('FAHMI DAFRIN MAULANA');
         setAge(20);
     }
-    
-    const [name, setName] = useState('Mario');
+
     // useEffect hook
     useEffect(() => {
         console.log('use effect ran');
