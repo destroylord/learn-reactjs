@@ -11,10 +11,12 @@ import BlogList from './BlogList';
 const Home = () => {
 
 
+
     // let name = 'Dafrin';
     const [name, setName] = useState('Dafrin');
     const [age, setAge] = useState(19);
     const [blogs, setBlogs] = useState(null);
+    const [isPending, setIsPending] = useState(true);
 
     
     const handleClick = () => {
@@ -24,14 +26,21 @@ const Home = () => {
 
     // useEffect hook
     useEffect(() => {
-        fetch('http://localhost:8000/blogs')
-        .then(res => {
-           return res.json()
-        })
-        .then((data) => {
-            console.log(data);
-            setBlogs(data)
-        });
+
+        setTimeout(() => {
+          
+            fetch('http://localhost:8000/blogs')
+            .then(res => {
+               return res.json()
+            })
+            .then((data) => {
+                // console.log(data);
+                setBlogs(data);
+                setIsPending(false);
+            });
+
+        }, 3000);
+
     }, []);
 
     const handleClickAgain = (name) => {
@@ -39,12 +48,14 @@ const Home = () => {
     }
     return ( 
         <div className="home">
+
+            { isPending && <div>Loading...</div> }
+
             <h2>Homepage</h2>
             <p>{name} is {age} years old</p>
             <button onClick={handleClick}>Click me</button>
 
             <button onClick={ () => handleClickAgain('dafrin') }>Click me Again</button>
-
                 {blogs && <BlogList blogs={blogs} title="All blogs!!"></BlogList>}
                 <button onClick={() => setName('luigi')}>Change name</button>
                 <p>{name}</p>
